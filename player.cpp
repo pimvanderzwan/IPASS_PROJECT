@@ -29,26 +29,27 @@ void Player::draw_inverse()
         }
 }
 void Player::update(){
+    location.x = new_location_x;
     }   
     
 void Player::move_right(){
     draw_inverse();
-    location.x += 8;
+    new_location_x += 8;
     if(location.x > 120){ // to make sure not out of bound
         location.x = 120;
         }
-    draw();
+    //draw();
     
     }
     
     
 void Player::move_left(){
     draw_inverse();
-    location.x -= 8;
+    new_location_x -= 8;
     if(location.x < 0){
         location.x = 0;
         }
-    draw();
+    //draw();
     }
 
 void Player::persona(hwlib::xy location){
