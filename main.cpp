@@ -44,7 +44,7 @@ int main()
      
     oled.clear();
     
-    std::array<SchermObject *, 10> lijst;   
+    std::array<SchermObject *, 26> lijst;   
 
     Player player (oled, hwlib::xy((uint16_t)60,(uint16_t)60), 0, 0);
     player.activate();
@@ -58,7 +58,7 @@ int main()
     Enemy enemy2 (oled, hwlib::xy((uint16_t)37,(uint16_t)1), 6, 0);
     enemy2.activate();
     lijst[2] =&enemy2;
-    Enemy enemy3 (oled, hwlib::xy((uint16_t)62,(uint16_t)1), 4, 0);
+    Enemy enemy3 (oled, hwlib::xy((uint16_t)60,(uint16_t)1), 4, 0);
     enemy3.activate();
     lijst[3] =&enemy3;
     Enemy enemy4 (oled, hwlib::xy((uint16_t)87,(uint16_t)1), 7, 0);
@@ -66,16 +66,49 @@ int main()
     lijst[4] =&enemy4;
     Enemy enemy5 (oled, hwlib::xy((uint16_t)112,(uint16_t)1), 3, 0);
     enemy5.activate();
-    lijst[5] =&enemy5;
     
-    Projectiel bullet1(oled, hwlib::xy((uint16_t)112,(uint16_t)1), 3, 0);
-    lijst[6] =&bullet1;
-    Projectiel bullet2(oled, hwlib::xy((uint16_t)112,(uint16_t)1), 3, 0);
-    lijst[7] =&bullet2;
-    Projectiel bullet3(oled, hwlib::xy((uint16_t)112,(uint16_t)1), 3, 0);
-    lijst[8] =&bullet3;
-    Projectiel bullet4(oled, hwlib::xy((uint16_t)112,(uint16_t)1), 3, 0);
-    lijst[9] =&bullet4;
+    
+    lijst[5] =&enemy5;
+    Projectiel bullet6(oled, hwlib::xy((uint16_t)112,(uint16_t)1), 3, 0);
+    lijst[6] =&bullet6;
+    Projectiel bullet7(oled, hwlib::xy((uint16_t)112,(uint16_t)1), 3, 0);
+    lijst[7] =&bullet7;
+    Projectiel bullet8(oled, hwlib::xy((uint16_t)112,(uint16_t)1), 3, 0);
+    lijst[8] =&bullet8;
+    Projectiel bullet9(oled, hwlib::xy((uint16_t)112,(uint16_t)1), 3, 0);
+    lijst[9] =&bullet9;
+    Projectiel bullet10(oled, hwlib::xy((uint16_t)112,(uint16_t)1), 3, 0);
+    lijst[10] =&bullet10;
+    Projectiel bullet11(oled, hwlib::xy((uint16_t)112,(uint16_t)1), 3, 0);
+    lijst[11] =&bullet11;
+    Projectiel bullet12(oled, hwlib::xy((uint16_t)112,(uint16_t)1), 3, 0);
+    lijst[12] =&bullet12;
+    Projectiel bullet13(oled, hwlib::xy((uint16_t)112,(uint16_t)1), 3, 0);
+    lijst[13] =&bullet13;
+    Projectiel bullet14(oled, hwlib::xy((uint16_t)112,(uint16_t)1), 3, 0);
+    lijst[14] =&bullet14;
+    Projectiel bullet15(oled, hwlib::xy((uint16_t)112,(uint16_t)1), 3, 0);
+    lijst[15] =&bullet15;
+    Projectiel bullet16(oled, hwlib::xy((uint16_t)112,(uint16_t)1), 3, 0);
+    lijst[16] =&bullet16;
+    Projectiel bullet17(oled, hwlib::xy((uint16_t)112,(uint16_t)1), 3, 0);
+    lijst[17] =&bullet17;
+    Projectiel bullet18(oled, hwlib::xy((uint16_t)112,(uint16_t)1), 3, 0);
+    lijst[18] =&bullet18;
+    Projectiel bullet19(oled, hwlib::xy((uint16_t)112,(uint16_t)1), 3, 0);
+    lijst[19] =&bullet19;
+    Projectiel bullet20(oled, hwlib::xy((uint16_t)112,(uint16_t)1), 3, 0);
+    lijst[20] =&bullet20;
+    Projectiel bullet21(oled, hwlib::xy((uint16_t)112,(uint16_t)1), 3, 0);
+    lijst[21] =&bullet21;
+    Projectiel bullet22(oled, hwlib::xy((uint16_t)112,(uint16_t)1), 3, 0);
+    lijst[22] =&bullet22;
+    Projectiel bullet23(oled, hwlib::xy((uint16_t)112,(uint16_t)1), 3, 0);
+    lijst[23] =&bullet23;
+    Projectiel bullet24(oled, hwlib::xy((uint16_t)112,(uint16_t)1), 3, 0);
+    lijst[24] =&bullet24;
+    Projectiel bullet25(oled, hwlib::xy((uint16_t)112,(uint16_t)1), 3, 0);
+    lijst[25] =&bullet25;
  
    /* Enemy enemy6 (oled, hwlib::xy((uint16_t)60,(uint16_t)10), 1, 0);
     enemy6.activate();
@@ -110,9 +143,11 @@ int main()
         auto bu_right = Button_right.read();
         actuele_tijd = hwlib::now_us()/1000; // dit is de actuele tijd in milliseconden.
         
-        if(actuele_tijd - begin_tijd > 200){  // na een verloop van 50 milliseconden update het scherm.
+        if(actuele_tijd - begin_tijd > 20){  // na een verloop van x milliseconden update het scherm.
             begin_tijd = actuele_tijd;
             game.update();
+            game.determine_interaction();
+            game.draw();
 
         }
         //oled.clear();
