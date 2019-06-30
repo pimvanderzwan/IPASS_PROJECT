@@ -126,7 +126,7 @@ int main()
  
     
     Galaga game(oled, lijst);
-    game.initialize();
+    game.game_begin();
     game.draw();
 
     size_t begin_tijd = hwlib::now_us()/1000; //dit is de begin tijd in milliseconden.
@@ -146,33 +146,21 @@ int main()
         if(actuele_tijd - begin_tijd > 20){  // na een verloop van x milliseconden update het scherm.
             begin_tijd = actuele_tijd;
             game.update();
-            game.determine_interaction();
+            game.determine_interaction(); //TODO: use bool as return value ...
             game.draw();
 
         }
-        //oled.clear();
-        //game.draw();
 
-        
         if (bu_left == 1){
             player.move_left();
-            //game.draw();
-                /*uint16_t i = 10;
-                while (i < 118){
-                oled.write( hwlib::xy( i, 30 ) );
-                  hwlib::wait_ms( 10 );
-                i = i+2;
-                // oled.clear();
-                }*/
-            }
+
         if (bu_mid == 1){
                 game.shoot_bullet();
-                //hwlib::cout << milliseconden << "\n";
             }
             
         if (bu_right == 1){
                 player.move_right();
-                //game.draw();
         }
+}
 }
 }

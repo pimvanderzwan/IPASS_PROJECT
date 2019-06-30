@@ -31,15 +31,22 @@ void Enemy::draw_inverse()
         }
 }
 void Enemy::update(){
+    if(is_active()){
     draw_inverse();
     location.y += speed;
-    if(location.y > 64){ 
+    if(location.y > 64){
+        deactivate();
         location.y = 0;
     }
-    draw();
     //hwlib::cout << "hello from update enemy";
     }
-    
+    else{
+        activate();
+        //location.x = 
+        }
+
+}
+
     
 void Enemy::persona(hwlib::xy location) {
     w.write(hwlib::xy(location.x, location.y +1 ));

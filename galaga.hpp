@@ -39,11 +39,10 @@ public:
     void draw();
     bool update();
     void shoot_bullet();
-    void test_function();
     void add_schermObject(SchermObject & object, int i);
     void determine_interaction();
-    void time_function();
     void game_over();
+    void game_begin();
     
     void * operator new(std::size_t n)
     {

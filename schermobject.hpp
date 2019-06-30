@@ -24,14 +24,18 @@ public:
         
         virtual void draw();
         virtual void update();
-        bool determine_interaction(SchermObject& rhs);
+
+ 
         bool is_active();
         void activate();
         void deactivate();
+        
         hwlib::xy get_location();
         void set_location(hwlib::xy location);        
+        
         bool within( int x, int a, int b );
         bool overlaps( const SchermObject & other );
+        bool determine_interaction(SchermObject& rhs);        
         virtual void persona(hwlib::xy location);
 }; 
 #endif

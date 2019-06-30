@@ -21,6 +21,7 @@ public:
     void move_left();
     void persona(hwlib::xy location) override;
     
+    
     };
 
 

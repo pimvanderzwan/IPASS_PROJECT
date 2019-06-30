@@ -1,14 +1,15 @@
 #include "projectiel.hpp"
 
 void Projectiel::update() {
-    inverse_draw();
-    location.y -= 1;
-    if(location.y < 0){ 
-        active = false;
-        return;
+    if(is_active()){
+        inverse_draw();
+        location.y -= 1;
+        if(location.y < 0){ 
+            active = false;
+            return;
     }  
-    draw();
-    
+    //draw();
+    }
     
     }
 
