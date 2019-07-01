@@ -29,36 +29,34 @@ void Player::draw_inverse()
         }
 }
 void Player::update(){
-    location.x = new_location_x;
     }   
     
 void Player::move_right(){
     draw_inverse();
-    new_location_x += 8;
+    old_location = location;
+    location.x += 1;
     if(location.x > 120){ // to make sure not out of bound
         location.x = 120;
         }
-    //draw();
-    
     }
     
     
 void Player::move_left(){
     draw_inverse();
-    new_location_x -= 8;
+    old_location = location;    
+    location.x -= 1;
     if(location.x < 0){
         location.x = 0;
         }
-    //draw();
     }
 
-void Player::persona(hwlib::xy location){
+/*void Player::persona(hwlib::xy location){
     w.write( hwlib::xy(location.x + 1, location.y +1) );
     w.write( hwlib::xy(location.x  -1, location.y -1) );
     w.write( hwlib::xy(location.x + 1, location.y -1) );
     w.write( hwlib::xy(location.x  -1, location.y +1) );
     
-    }
+    }*/
     
 void Player::set_bitmap(unsigned char d0, unsigned char d1,
                         unsigned char d2, unsigned char d3,

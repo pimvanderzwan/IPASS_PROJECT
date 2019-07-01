@@ -31,6 +31,7 @@ void SchermObject::activate(){
 
 void SchermObject::deactivate(){
     active = false;
+
 }
 
 
@@ -70,5 +71,3 @@ bool SchermObject::overlaps( const SchermObject & other ){
    
    return x_overlap && y_overlap;
 }
-void SchermObject::persona(hwlib::xy location){
-    }

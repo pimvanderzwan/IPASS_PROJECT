@@ -10,19 +10,19 @@ protected:
     int speed;
     int direction;
     bool active;
-    int new_location_x;
-    int new_location_y;
+    hwlib::xy old_location;
+
+
 public:
     SchermObject(hwlib::window & w, const hwlib::xy & location, int speed, int direction):
         drawable( w, location ),
         speed( speed ),
         direction( direction )
         {active = false;
-        new_location_x = location.x;
-        new_location_y = location.y;
         }
         
         virtual void draw();
+        virtual void draw_inverse();
         virtual void update();
 
  
@@ -36,6 +36,7 @@ public:
         bool within( int x, int a, int b );
         bool overlaps( const SchermObject & other );
         bool determine_interaction(SchermObject& rhs);        
-        virtual void persona(hwlib::xy location);
+
+        //virtual void persona(persona_lijst);
 }; 
 #endif

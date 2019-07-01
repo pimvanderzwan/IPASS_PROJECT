@@ -2,7 +2,8 @@
 
 void Projectiel::update() {
     if(is_active()){
-        inverse_draw();
+        old_location = location;
+        draw_inverse();
         location.y -= 1;
         if(location.y < 0){ 
             active = false;
@@ -20,16 +21,16 @@ void Projectiel::draw(){
     
     }
     
-void Projectiel::inverse_draw(){
+void Projectiel::draw_inverse(){
     w.write( hwlib::xy( location ), w.background );
     
     }
     
 
-void Projectiel::persona(hwlib::xy location){
+/*void Projectiel::persona(hwlib::xy location){
     w.write( hwlib::xy(location.x + 1, location.y));
     w.write( hwlib::xy(location.x, location.y +1));
     w.write( hwlib::xy(location.x - 1, location.y));
 
-    } 
+    } */
     

@@ -35,34 +35,44 @@ bool Galaga::update(){
 }
     
 void Galaga::determine_interaction(){
-
-for (size_t i = 0; i < lijst.size(); i++){
-         for(size_t j = 0; j < lijst.size(); j++){
-            if (i==0 and j!=0 and lijst[i] -> determine_interaction( *lijst[j] )) // Player is killed
+// Player and enemies
+for(size_t j = 1; j < 6; j++){
+            if (lijst[j]->is_active() and lijst[0] -> determine_interaction( *lijst[j] )) // Player is killed
             {
                hwlib::cout << "player killed\n"; 
-               game_over();//
+               //game_over();//
                return; 
             }
-            else {
-                if (i > 0 and i < 6 and i != j and lijst[i] -> determine_interaction( *lijst[j])) // enemy is killed
+}
+
+//Enemies and projectielen
+for (size_t i = 1; i < 6; i++){
+        if (lijst[i]->is_active()){
+         for(size_t j = 6; j < 26; j++){
+                if (lijst[j]->is_active() and lijst[i] -> determine_interaction( *lijst[j])) // enemy is killed
                 {
                     lijst[i]->deactivate(); //enemy
+                    lijst[i]->draw_inverse();
                     lijst[j]->deactivate(); // bullet
+                    lijst[j]->draw_inverse();
                     hwlib::cout << "enemy killed " << i << "\n"; // 
                     hwlib::cout << "projectiel gone " << j << "\n";
+                    //lijst[i]->set_location(lijst[0]->get_location().x,0);
+                    return;
                 }
            }
-        }
+         }
     }
 }
 
 void Galaga::shoot_bullet(){
-     for (size_t i = 0; i < lijst.size(); i++)
+     for (size_t i = 6; i < lijst.size(); i++) //bullets only
     {
+  
         if (!lijst[i]->is_active()){ //find fist inactive bullet and activate
             lijst[i]->set_location(hwlib::xy(lijst[0]->get_location().x + 4, lijst[0]->get_location().y)); // kopieer de location van de player.
             lijst[i]->activate();
+            hwlib::cout << "shoot bullet " << i << "location: " <<  lijst[i]->get_location() << "\n ";
             lijst[i]->update();
             return;
         }

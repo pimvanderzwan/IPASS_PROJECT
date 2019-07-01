@@ -14,8 +14,8 @@ public:
     {}
     void draw() override;
     void update() override;
-    void persona(hwlib::xy location) override;
-    void inverse_draw();
+ //   void persona(hwlib::xy location) override;
+    void draw_inverse();
     };
 
 

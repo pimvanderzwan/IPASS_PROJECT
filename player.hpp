@@ -23,7 +23,7 @@ public:
     void update () override;
     void move_right();
     void move_left();
-    void persona(hwlib::xy location) override;
+    //void persona(hwlib::xy location) override;
     void set_bitmap(unsigned char d0, unsigned char d1,
                     unsigned char d2, unsigned char d3,
                     unsigned char d4, unsigned char d5,
