@@ -38,9 +38,7 @@ int main()
 
    
     auto spi_bus = hwlib::spi_bus_bit_banged_sclk_mosi_miso( sck, mosi, hwlib::pin_in_dummy );
-    //auto font    = hwlib::font_default_8x8();
     auto oled = hwlib::glcd_oled_spi_128x64_direct_res_dc_cs( spi_bus, res, dc, cs ); 
-    // auto display = hwlib::terminal_from( oled, font ); 
      
     oled.clear();
     
@@ -52,19 +50,19 @@ int main()
     //add_schermObject(player, 0);
     
     
-    Enemy enemy1 (oled, hwlib::xy((uint16_t)12,(uint16_t)1), 8, 0);
+    Enemy enemy1 (oled, hwlib::xy((uint16_t)12,(uint16_t)1), 1, 0);
     enemy1.activate();
     lijst[1] =&enemy1;
-    Enemy enemy2 (oled, hwlib::xy((uint16_t)37,(uint16_t)1), 6, 0);
+    Enemy enemy2 (oled, hwlib::xy((uint16_t)37,(uint16_t)4), 1, 0);
     enemy2.activate();
     lijst[2] =&enemy2;
-    Enemy enemy3 (oled, hwlib::xy((uint16_t)60,(uint16_t)1), 4, 0);
+    Enemy enemy3 (oled, hwlib::xy((uint16_t)60,(uint16_t)2), 1, 0);
     enemy3.activate();
     lijst[3] =&enemy3;
-    Enemy enemy4 (oled, hwlib::xy((uint16_t)87,(uint16_t)1), 7, 0);
+    Enemy enemy4 (oled, hwlib::xy((uint16_t)87,(uint16_t)6), 1, 0);
     enemy4.activate();
     lijst[4] =&enemy4;
-    Enemy enemy5 (oled, hwlib::xy((uint16_t)112,(uint16_t)1), 3, 0);
+    Enemy enemy5 (oled, hwlib::xy((uint16_t)112,(uint16_t)5), 1, 0);
     enemy5.activate();
     lijst[5] =&enemy5;
     
@@ -131,7 +129,7 @@ int main()
  
     
     Galaga game(oled, lijst);
-    //game.game_begin();
+    game.game_begin();
     game.draw();
 
     size_t begin_tijd = hwlib::now_us()/1000; //dit is de begin tijd in milliseconden.
@@ -151,7 +149,9 @@ int main()
         if(actuele_tijd - begin_tijd > 20){  // na een verloop van x milliseconden update het scherm.
             begin_tijd = actuele_tijd;
             game.update();
-            game.determine_interaction(); //TODO: use bool as return value ...
+            if (game.determine_interaction()){
+                break; //Player is killed
+            }
             game.draw();
 
         }

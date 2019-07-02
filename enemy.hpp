@@ -20,8 +20,11 @@ public:
     void update () override;
     void move_right();
     void move_left();
+    bool determine_interaction(SchermObject& rhs);
 //    void persona(hwlib::xy location) override;
-    
+
+    hwlib::xy upper_left_corner() override;
+    hwlib::xy lower_right_corner() override;
     
     };
 

@@ -16,6 +16,7 @@ private:
     bool toestand;
     //std::vector<SchermObject> lijst;
     std::array<SchermObject *, 26> lijst;
+    int score=0;
 
 
 public:
@@ -40,7 +41,7 @@ public:
     bool update();
     void shoot_bullet();
     void add_schermObject(SchermObject & object, int i);
-    void determine_interaction();
+    bool determine_interaction();
     void game_over();
     void game_begin();
     

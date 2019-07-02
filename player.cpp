@@ -68,3 +68,12 @@ void Player::set_bitmap(unsigned char d0, unsigned char d1,
                            //             unsigned char d4, unsigned char d5,
                             //            unsigned char d6, unsigned char d7);
                         }
+                        
+                        
+hwlib::xy Player::upper_left_corner(){
+    return hwlib::xy(location.x, location.y+8);
+}
+
+hwlib::xy Player::lower_right_corner(){
+    return hwlib::xy(location.x+8, location.y);
+}

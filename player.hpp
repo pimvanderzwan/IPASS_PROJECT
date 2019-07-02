@@ -18,6 +18,9 @@ public:
     
     {}
     
+    hwlib::xy upper_left_corner() override;
+    hwlib::xy lower_right_corner() override;
+    
     void draw () override;
     void draw_inverse();
     void update () override;

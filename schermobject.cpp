@@ -3,8 +3,11 @@
 
 void SchermObject::draw(){
     //hwlib::cout << "hello";
-    
     }
+void SchermObject::draw_inverse(){}
+
+
+
 bool SchermObject::determine_interaction( SchermObject& rhs ){
     if(overlaps( rhs )){
         //hwlib::cout << "hit \n";
@@ -42,32 +45,14 @@ hwlib::xy SchermObject::get_location(){
 void SchermObject::set_location(hwlib::xy rhs){
     location = rhs;
 }   
-   
-bool SchermObject::within( int x, int a, int b ){
-    return ( x >= a ) && ( x <= b );
 
-}
 
-bool SchermObject::overlaps( const SchermObject & other ){
-    bool x_overlap = within( 
-      location.x, 
-      other.location.x, 
-      other.location.x // + other.size.x
-   ) || within( 
-      other.location.x, 
-      location.x, 
-      location.x // + size.x
-   );
-     
-   bool y_overlap = within( 
-      location.y, 
-      other.location.y, 
-      other.location.y // + other.size.y
-   ) || within( 
-      other.location.y, 
-      location.y, 
-      location.y //+ size.y
-   );
-   
-   return x_overlap && y_overlap;
+bool SchermObject::overlaps( SchermObject & other ){
+    
+    //https://www.geeksforgeeks.org/find-two-rectangles-overlap/
+    
+    if (upper_left_corner().x > other.lower_right_corner().x || other.upper_left_corner().x > lower_right_corner().x){return false;}    
+    if (upper_left_corner().y < other.lower_right_corner().y || other.upper_left_corner().y < lower_right_corner().y){return false;}
+    
+    return true;
 }

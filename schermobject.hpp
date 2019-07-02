@@ -13,6 +13,7 @@ protected:
     hwlib::xy old_location;
 
 
+
 public:
     SchermObject(hwlib::window & w, const hwlib::xy & location, int speed, int direction):
         drawable( w, location ),
@@ -21,10 +22,13 @@ public:
         {active = false;
         }
         
+        virtual hwlib::xy upper_left_corner();
+        virtual hwlib::xy lower_right_corner();
+        
         virtual void draw();
         virtual void draw_inverse();
         virtual void update();
-
+        
  
         bool is_active();
         void activate();
@@ -33,8 +37,7 @@ public:
         hwlib::xy get_location();
         void set_location(hwlib::xy location);        
         
-        bool within( int x, int a, int b );
-        bool overlaps( const SchermObject & other );
+        bool overlaps(  SchermObject & other );
         bool determine_interaction(SchermObject& rhs);        
 
         //virtual void persona(persona_lijst);

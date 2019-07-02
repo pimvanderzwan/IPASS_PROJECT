@@ -34,14 +34,14 @@ bool Galaga::update(){
     return true;
 }
     
-void Galaga::determine_interaction(){
+bool Galaga::determine_interaction(){
 // Player and enemies
 for(size_t j = 1; j < 6; j++){
             if (lijst[j]->is_active() and lijst[0] -> determine_interaction( *lijst[j] )) // Player is killed
             {
-               hwlib::cout << "player killed\n"; 
-               //game_over();//
-               return; 
+               //hwlib::cout << "player killed\n"; 
+               game_over();//
+               return true; // to flag that the player is killed
             }
 }
 
@@ -51,18 +51,22 @@ for (size_t i = 1; i < 6; i++){
          for(size_t j = 6; j < 26; j++){
                 if (lijst[j]->is_active() and lijst[i] -> determine_interaction( *lijst[j])) // enemy is killed
                 {
+                    score=score+1;
                     lijst[i]->deactivate(); //enemy
                     lijst[i]->draw_inverse();
                     lijst[j]->deactivate(); // bullet
                     lijst[j]->draw_inverse();
-                    hwlib::cout << "enemy killed " << i << "\n"; // 
-                    hwlib::cout << "projectiel gone " << j << "\n";
-                    //lijst[i]->set_location(lijst[0]->get_location().x,0);
-                    return;
+                    //hwlib::cout << "enemy killed " << i << "\n"; // 
+                    //hwlib::cout << "projectiel gone " << j << "\n";
+                    int r = (rand() %10)-5; //Generate random nummer (-5 ... 5)
+                    //hwlib::cout << "random number: " << r << "\n";
+                    lijst[i]->set_location(hwlib::xy(lijst[0]->get_location().x+r,0)); // set new location for killed enemy
+                    return false;
                 }
            }
          }
     }
+    return false;
 }
 
 void Galaga::shoot_bullet(){
@@ -72,7 +76,7 @@ void Galaga::shoot_bullet(){
         if (!lijst[i]->is_active()){ //find fist inactive bullet and activate
             lijst[i]->set_location(hwlib::xy(lijst[0]->get_location().x + 4, lijst[0]->get_location().y)); // kopieer de location van de player.
             lijst[i]->activate();
-            hwlib::cout << "shoot bullet " << i << "location: " <<  lijst[i]->get_location() << "\n ";
+            //hwlib::cout << "shoot bullet " << i << "location: " <<  lijst[i]->get_location() << "\n ";
             lijst[i]->update();
             return;
         }
@@ -92,16 +96,19 @@ void Galaga::game_over(){
     auto font    = hwlib::font_default_8x8();
     auto display = hwlib::terminal_from( w, font );
     w.clear(); 
-    display 
-            << "game over" << hwlib::flush;   // put game end on screen
+    display //
+            << "\t0302"
+            << "game over \n"   // put game end on screen
+            << "score: " << score << " enemies! ";
 }   
  
 void Galaga::game_begin(){
     auto font    = hwlib::font_default_8x8();
     auto display = hwlib::terminal_from( w, font ); 
     display 
-            << "Galaga on Due" 
-         << "\n" << "door Pim" << hwlib::flush;   
+            << "\t0202"
+            << "Galaga on Due" << "\n" 
+            << "door Pim" ;   
     w.clear();
 }   
 

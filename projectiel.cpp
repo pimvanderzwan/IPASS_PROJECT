@@ -34,3 +34,11 @@ void Projectiel::draw_inverse(){
 
     } */
     
+                        
+hwlib::xy Projectiel::upper_left_corner(){
+    return location;
+}
+
+hwlib::xy Projectiel::lower_right_corner(){
+    return location;
+}

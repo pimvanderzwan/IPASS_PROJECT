@@ -45,11 +45,16 @@ void Enemy::update(){
     }
     else{
         activate();
-        hwlib::cout << "enemy activated " << location << "\n";
+        //hwlib::cout << "enemy activated " << location << "\n";
         //location.x = 
         }
 
 }
+bool Enemy::determine_interaction(SchermObject& rhs){
+
+    return false;
+    
+    }
 
     
 /*void Enemy::persona(hwlib::xy location) {
@@ -64,3 +69,11 @@ void Enemy::update(){
     } */ 
     
  //   void Enemy::persona(){}
+ 
+hwlib::xy Enemy::upper_left_corner(){
+    return hwlib::xy(location.x-1, location.y+4);
+}
+
+hwlib::xy Enemy::lower_right_corner(){
+    return hwlib::xy(location.x+1, location.y);
+}

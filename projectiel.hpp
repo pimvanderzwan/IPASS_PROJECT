@@ -16,6 +16,9 @@ public:
     void update() override;
  //   void persona(hwlib::xy location) override;
     void draw_inverse();
+    
+    hwlib::xy upper_left_corner() override;
+    hwlib::xy lower_right_corner() override;
     };
 
 
