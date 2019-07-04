@@ -7,19 +7,6 @@
 
 
 
-class Inputbutton{
-private:
-    bool state;
-    uint8_t arduino;
-    
-public: 
-    
-    
-    };
-
-
-
-
 int main()
 {   
     
@@ -46,9 +33,7 @@ int main()
 
     Player player (oled, hwlib::xy((uint16_t)60,(uint16_t)60), 0, 0);
     player.activate();
-    lijst[0]= &player;
-    //add_schermObject(player, 0);
-    
+    lijst[0]= &player;    
     
     Enemy enemy1 (oled, hwlib::xy((uint16_t)12,(uint16_t)1), 1, 0);
     enemy1.activate();
@@ -66,12 +51,6 @@ int main()
     enemy5.activate();
     lijst[5] =&enemy5;
     
-    /*int no_of_enemies=20;
-    for (int i=0; i< no_of_enemies ; i++)
-    {
-        lijst[i+6] = &Projectiel(oled, hwlib::xy((uint16_t)112,(uint16_t)1), 6, 0);
-    }
-    */
     Projectiel bullet6(oled, hwlib::xy((uint16_t)112,(uint16_t)1), 6, 0);
     lijst[6] =&bullet6;
     Projectiel bullet7(oled, hwlib::xy((uint16_t)112,(uint16_t)1), 6, 0);
@@ -112,21 +91,8 @@ int main()
     lijst[24] =&bullet24;
     Projectiel bullet25(oled, hwlib::xy((uint16_t)112,(uint16_t)1), 6, 0);
     lijst[25] =&bullet25;
- 
-   /* Enemy enemy6 (oled, hwlib::xy((uint16_t)60,(uint16_t)10), 1, 0);
-    enemy6.activate();
-    lijst[6] =&enemy6;
-    Enemy enemy7 (oled, hwlib::xy((uint16_t)70,(uint16_t)10), 1, 0);
-    enemy7.activate();
-    lijst[7] =&enemy7;
-    Enemy enemy8 (oled, hwlib::xy((uint16_t)80,(uint16_t)10), 5, 0);
-    enemy8.activate();
-    lijst[8] =&enemy8;
-    Enemy enemy9 (oled, hwlib::xy((uint16_t)90,(uint16_t)10), 2, 0);
-    enemy9.activate();
-    lijst[9] =&enemy9;*/
     
- 
+    
     
     Galaga game(oled, lijst);
     game.game_begin();

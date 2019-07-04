@@ -8,7 +8,15 @@
 #include <stdlib.h>
 
 
+/// @file
 
+/// \brief
+/// class Galaga
+/// \details
+/// This is a class wich contains an array with al the object that can be seen on the screen.
+/// This class is essentialy the base of the game. 
+/// It starts the game and ends the game.
+/// It runs through the array and updates and draws the game, the responsibility of drawing and updating is done by each object itself. 
 class Galaga{
 private:
 
@@ -20,23 +28,33 @@ private:
 
 
 public:
-
+   /// \brief
+   /// A construct with just a window.
+   /// \details
+   /// A useles constructor
     Galaga(hwlib::window & w):
     w(w)
     {
         
     }
 
-    
+   /// \brief
+   /// Constructor containing the window and the array.
+   /// \details
+   /// This constructor initializes a window and an array containing the objects for on screen. 
+   /// the standard amount of object is now 26, this is the arduino due doesn't support a vector so there has to be a pre determined set of objects.
     Galaga(hwlib::window & w, std::array<SchermObject *, 26> lijst):
     w ( w ), lijst( lijst )
     {
         }
-        
+    /// \brief
+   /// Destructor of the Galaga class.
+   /// \details
+   /// no specifics.
     ~Galaga()
     {}
     
-    void initialize();
+    
     void draw();
     bool update();
     void shoot_bullet();

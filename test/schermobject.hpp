@@ -5,13 +5,14 @@
 #include "hwlib.hpp"
 
 
+//class location;
 /// @file
 
 /// \brief
 /// class SchermObject ADT.
 /// \details
 /// class inherits location and window from drawable.
-/// class contains a speed, direction, active and the previous location of the object.
+/// clas contains a speed, direction, active and the previous location of the object.
 
 class SchermObject : public drawable {
 protected:
@@ -51,5 +52,6 @@ public:
         bool overlaps(  SchermObject & other );
         bool determine_interaction(SchermObject& rhs);        
 
+        //virtual void persona(persona_lijst);
 }; 
 #endif

@@ -1,7 +1,4 @@
 #include "schermobject.hpp"
-
-/// \@file
-
 /// \brief
 /// Virtual function draw.
 /// \details

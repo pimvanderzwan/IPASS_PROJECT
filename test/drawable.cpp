@@ -1,7 +1,5 @@
 #include "drawable.hpp"
 
-/// \@file
-
 /// \brief
 /// get fucntion.
 /// \detail

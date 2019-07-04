@@ -4,16 +4,27 @@
 #include "schermobject.hpp"
 
 
+/// \@file
+
+/// \brief
+/// Enemy class derived from SchermObject
+/// \details
+/// Inherits window, location, speed and direction from Schermobject.
+
+
 class Enemy : public SchermObject{
 private:
-    int direction_x_of_y;
 public:
     
+    /// \brief
+    /// Enemy constructor
+    /// \details
+    /// Constructs an enemy at a location with a speed and a direction.
+
     Enemy(hwlib::window & w, const hwlib::xy & location, int speed, int direction):
         SchermObject(w, location, speed, direction)
     
-    {
-    }
+    {}
     
     void draw () override;
     void draw_inverse();
@@ -21,7 +32,6 @@ public:
     void move_right();
     void move_left();
     bool determine_interaction(SchermObject& rhs);
-//    void persona(hwlib::xy location) override;
 
     hwlib::xy upper_left_corner() override;
     hwlib::xy lower_right_corner() override;

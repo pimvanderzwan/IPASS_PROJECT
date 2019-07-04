@@ -1,5 +1,16 @@
 #include "enemy.hpp"
 
+/// \@file
+///
+/// \brief
+/// Void draw function.
+/// \details
+/// This function creates the look of the enemy.
+/// This function uses the location of the enemy object to as a reference point to draw its persona.
+/// A bitmap is not used because the time it takes to draw.
+
+
+
 void Enemy::draw(){
     
    if (active == true)
@@ -11,11 +22,15 @@ void Enemy::draw(){
         w.write(hwlib::xy(location.x, location.y ), w.foreground);
         w.write(hwlib::xy(location.x-1, location.y +3), w.foreground);
         w.write(hwlib::xy(location.x+1, location.y +3), w.foreground);
-        //w.write(hwlib::xy( location ), hwlib::image_8x8 (0x00, 0x81, 0xc3, 0xe7, 0xff, 0xff, 0xff, 0xff));
         }
         
-        //hwlib::cout << "    end draw player" ;
 }
+
+/// \brief
+/// Void inverse draw function.
+/// \details
+/// This function removes the look of the enemy.
+/// This function works the same as the draw function, but it draws the background.
 
 void Enemy::draw_inverse()
 {   
@@ -28,11 +43,17 @@ void Enemy::draw_inverse()
     w.write(hwlib::xy(location.x, location.y ), w.background);
     w.write(hwlib::xy(location.x-1, location.y +3), w.background);
     w.write(hwlib::xy(location.x+1, location.y +3), w.background);
-    //hwlib::cout << "begin draw player inverse " << location ;
-    // w.write( hwlib::xy( location ), w.background);
-    //w.write(hwlib::xy( location ), hwlib::image_8x8 (0xff, 0xff , 0xff,  0xff, 0xff, 0xff,0xff, 0xff));
         }
 }
+
+/// \brief
+/// Void update function.
+/// \details
+/// This function checks if the enemy is active. Then calls on the draw inverse function to remove the image of the enemy.
+/// The speed is added to the y axis of the location.
+/// If the location of the enemy is outside the screen the object is disactivated and placed on the top of screen.
+/// If the Enemy is inactive its activated.
+
 void Enemy::update(){
     if(is_active()){
     draw_inverse();
@@ -45,34 +66,24 @@ void Enemy::update(){
     }
     else{
         activate();
-        //hwlib::cout << "enemy activated " << location << "\n";
-        //location.x = 
         }
 
 }
-bool Enemy::determine_interaction(SchermObject& rhs){
 
-    return false;
-    
-    }
 
-    
-/*void Enemy::persona(hwlib::xy location) {
-    w.write(hwlib::xy(location.x, location.y +1 ));
-    w.write(hwlib::xy(location.x, location.y +2 ));
-    w.write(hwlib::xy(location.x, location.y +3));
-    w.write(hwlib::xy(location.x, location.y +4));
-    w.write(hwlib::xy(location.x, location.y ));
-    w.write(hwlib::xy(location.x-1, location.y +3));
-    w.write(hwlib::xy(location.x+1, location.y +3));
-    
-    } */ 
-    
- //   void Enemy::persona(){}
+/// \brief
+/// Get function.
+/// \details
+/// Function gives the location of the upper left corner of the bounding box
  
 hwlib::xy Enemy::upper_left_corner(){
     return hwlib::xy(location.x-1, location.y+4);
 }
+
+/// \brief
+/// Get function.
+/// \details
+/// Function gives the location of the lower right corner of the bounding box
 
 hwlib::xy Enemy::lower_right_corner(){
     return hwlib::xy(location.x+1, location.y);

@@ -2,14 +2,13 @@
 #define DRAWABLE_HPP
 
 #include "hwlib.hpp"
-
-
 /// @file
 
 /// \brief
 /// class drawable ADT.
 /// \details
 /// class contains a window and a location.
+
 class drawable { 
 protected:
 
