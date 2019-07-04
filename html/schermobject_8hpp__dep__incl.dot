@@ -1,0 +1,14 @@
+digraph "schermobject.hpp"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node3 [label="schermobject.hpp",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="enemy.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$enemy_8hpp_source.html"];
+  Node3 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="galaga.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$galaga_8hpp.html"];
+  Node3 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="player.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$player_8hpp.html"];
+  Node3 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="projectiel.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$projectiel_8hpp.html"];
+}
