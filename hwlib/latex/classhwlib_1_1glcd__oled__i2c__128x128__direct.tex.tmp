@@ -1,0 +1,123 @@
+\hypertarget{classhwlib_1_1glcd__oled__i2c__128x128__direct}{}\section{hwlib\+:\+:glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct Class Reference}
+\label{classhwlib_1_1glcd__oled__i2c__128x128__direct}\index{hwlib\+::glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct@{hwlib\+::glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct}}
+
+
+O\+L\+ED direct class for the i2c connected 128x128 \hyperlink{classhwlib_1_1Grayscale}{Grayscale} O\+L\+ED based on ssd1327.  
+
+
+
+
+{\ttfamily \#include $<$glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct.\+hpp$>$}
+
+
+
+Inheritance diagram for hwlib\+:\+:glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct\+:
+% FIG 0
+
+
+Collaboration diagram for hwlib\+:\+:glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classhwlib_1_1glcd__oled__i2c__128x128__direct_a20482e2abe6ad7275f3be757a2d0301e}{glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct} (i2c\+\_\+bus \&bus, uint\+\_\+fast8\+\_\+t address=0x3\+C)
+\begin{DoxyCompactList}\small\item\em O\+L\+ED direct constructor. \end{DoxyCompactList}\item 
+void \hyperlink{classhwlib_1_1glcd__oled__i2c__128x128__direct_ae19199a34f20d5f1b18d9329aec43809}{write} (xy pos, \hyperlink{classhwlib_1_1Grayscale}{Grayscale} grayscale)
+\begin{DoxyCompactList}\small\item\em Ol\+ED pixel write. \end{DoxyCompactList}\item 
+void \hyperlink{classhwlib_1_1glcd__oled__i2c__128x128__direct_a8db989a28b509bd8f2f43708cf0baf02}{write} (xy pos, const \hyperlink{classhwlib_1_1Grayscale__image}{Grayscale\+\_\+image} \&img)
+\begin{DoxyCompactList}\small\item\em O\+L\+ED image write. \end{DoxyCompactList}\item 
+void \hyperlink{classhwlib_1_1glcd__oled__i2c__128x128__direct_afcaebda2936a65560d6c8fceac5547bb}{write} (xy pos)
+\begin{DoxyCompactList}\small\item\em Oled write function. \end{DoxyCompactList}\item 
+void \hyperlink{classhwlib_1_1glcd__oled__i2c__128x128__direct_ad602c7ce8f26ca75f68b937561216413}{write} (xy pos, const image \&img)
+\begin{DoxyCompactList}\small\item\em O\+L\+ED write function. \end{DoxyCompactList}\item 
+void \hyperlink{classhwlib_1_1glcd__oled__i2c__128x128__direct_aea3cc48dad43e779e21786e94d9eaae8}{clear} () override
+\begin{DoxyCompactList}\small\item\em O\+L\+ED clear function. \end{DoxyCompactList}\item 
+void \hyperlink{classhwlib_1_1glcd__oled__i2c__128x128__direct_a0f7a37bac84f947cec6f138c531584d6}{flush} () override
+\begin{DoxyCompactList}\small\item\em O\+L\+ED flush function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+O\+L\+ED direct class for the i2c connected 128x128 \hyperlink{classhwlib_1_1Grayscale}{Grayscale} O\+L\+ED based on ssd1327. 
+
+This class writes to the O\+L\+ED window directly (without writing and flushing a buffer). This class contains a buffer array (size 8192) and a constant size. The class also contains several overwritten write functions due to name hiding When writing a pixel one byte is written to the O\+L\+ED (containing 2-\/pixel information) T\+O\+DO\+: make sure that a byte is not written twice to the O\+L\+ED when writing a consecutive area 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classhwlib_1_1glcd__oled__i2c__128x128__direct_a20482e2abe6ad7275f3be757a2d0301e}\label{classhwlib_1_1glcd__oled__i2c__128x128__direct_a20482e2abe6ad7275f3be757a2d0301e}} 
+\index{hwlib\+::glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct@{hwlib\+::glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct}!glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct@{glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct}}
+\index{glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct@{glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct}!hwlib\+::glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct@{hwlib\+::glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct}}
+\subsubsection{\texorpdfstring{glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct()}{glcd\_oled\_i2c\_128x128\_direct()}}
+{\footnotesize\ttfamily hwlib\+::glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct\+::glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct (\begin{DoxyParamCaption}\item[{i2c\+\_\+bus \&}]{bus,  }\item[{uint\+\_\+fast8\+\_\+t}]{address = {\ttfamily 0x3C} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+O\+L\+ED direct constructor. 
+
+constructor provided the i2c channel and an address to send data to the ssd1327 (default = 0x3C). 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classhwlib_1_1glcd__oled__i2c__128x128__direct_aea3cc48dad43e779e21786e94d9eaae8}\label{classhwlib_1_1glcd__oled__i2c__128x128__direct_aea3cc48dad43e779e21786e94d9eaae8}} 
+\index{hwlib\+::glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct@{hwlib\+::glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct}!clear@{clear}}
+\index{clear@{clear}!hwlib\+::glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct@{hwlib\+::glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct}}
+\subsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily void hwlib\+::glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+O\+L\+ED clear function. 
+
+Function sets the write zone from location 0 to the size of the screen. The function then sets every pixel to black. \mbox{\Hypertarget{classhwlib_1_1glcd__oled__i2c__128x128__direct_a0f7a37bac84f947cec6f138c531584d6}\label{classhwlib_1_1glcd__oled__i2c__128x128__direct_a0f7a37bac84f947cec6f138c531584d6}} 
+\index{hwlib\+::glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct@{hwlib\+::glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct}!flush@{flush}}
+\index{flush@{flush}!hwlib\+::glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct@{hwlib\+::glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct}}
+\subsubsection{\texorpdfstring{flush()}{flush()}}
+{\footnotesize\ttfamily void hwlib\+::glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct\+::flush (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+O\+L\+ED flush function. 
+
+This function flushes the \mbox{\Hypertarget{classhwlib_1_1glcd__oled__i2c__128x128__direct_ae19199a34f20d5f1b18d9329aec43809}\label{classhwlib_1_1glcd__oled__i2c__128x128__direct_ae19199a34f20d5f1b18d9329aec43809}} 
+\index{hwlib\+::glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct@{hwlib\+::glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct}!write@{write}}
+\index{write@{write}!hwlib\+::glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct@{hwlib\+::glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct}}
+\subsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily void hwlib\+::glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct\+::write (\begin{DoxyParamCaption}\item[{xy}]{pos,  }\item[{\hyperlink{classhwlib_1_1Grayscale}{Grayscale}}]{grayscale }\end{DoxyParamCaption})}
+
+
+
+Ol\+ED pixel write. 
+
+This function writes a \hyperlink{classhwlib_1_1Grayscale}{Grayscale} to the pixel at location pos. If the location is outside the window the call has no effect. \mbox{\Hypertarget{classhwlib_1_1glcd__oled__i2c__128x128__direct_a8db989a28b509bd8f2f43708cf0baf02}\label{classhwlib_1_1glcd__oled__i2c__128x128__direct_a8db989a28b509bd8f2f43708cf0baf02}} 
+\index{hwlib\+::glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct@{hwlib\+::glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct}!write@{write}}
+\index{write@{write}!hwlib\+::glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct@{hwlib\+::glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct}}
+\subsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily void hwlib\+::glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct\+::write (\begin{DoxyParamCaption}\item[{xy}]{pos,  }\item[{const \hyperlink{classhwlib_1_1Grayscale__image}{Grayscale\+\_\+image} \&}]{img }\end{DoxyParamCaption})}
+
+
+
+O\+L\+ED image write. 
+
+This function writes a greyscale image on a location. \mbox{\Hypertarget{classhwlib_1_1glcd__oled__i2c__128x128__direct_afcaebda2936a65560d6c8fceac5547bb}\label{classhwlib_1_1glcd__oled__i2c__128x128__direct_afcaebda2936a65560d6c8fceac5547bb}} 
+\index{hwlib\+::glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct@{hwlib\+::glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct}!write@{write}}
+\index{write@{write}!hwlib\+::glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct@{hwlib\+::glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct}}
+\subsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily void hwlib\+::glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct\+::write (\begin{DoxyParamCaption}\item[{xy}]{pos }\end{DoxyParamCaption})}
+
+
+
+Oled write function. 
+
+The function writes a grayscale pixel (by default) black (=G\+S15) on given location. \mbox{\Hypertarget{classhwlib_1_1glcd__oled__i2c__128x128__direct_ad602c7ce8f26ca75f68b937561216413}\label{classhwlib_1_1glcd__oled__i2c__128x128__direct_ad602c7ce8f26ca75f68b937561216413}} 
+\index{hwlib\+::glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct@{hwlib\+::glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct}!write@{write}}
+\index{write@{write}!hwlib\+::glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct@{hwlib\+::glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct}}
+\subsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily void hwlib\+::glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct\+::write (\begin{DoxyParamCaption}\item[{xy}]{pos,  }\item[{const image \&}]{img }\end{DoxyParamCaption})}
+
+
+
+O\+L\+ED write function. 
+
+function writes and image on given location. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct.\+hpp\item 
+glcd\+\_\+oled\+\_\+i2c\+\_\+128x128\+\_\+direct.\+cpp\end{DoxyCompactItemize}

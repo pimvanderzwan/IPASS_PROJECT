@@ -1,0 +1,11 @@
+digraph "Graphical Class Hierarchy"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node2 [label="ssd1327_i2c",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node2 -> Node0 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node0 [label="hwlib::glcd_oled_i2c\l_128x128_direct",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classhwlib_1_1glcd__oled__i2c__128x128__direct.html",tooltip="OLED direct class for the i2c connected 128x128 Grayscale OLED based on ssd1327. "];
+  Node0 [label="window",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node0 -> Node0 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}
