@@ -1,6 +1,8 @@
 #include "grayscale.hpp"
 
 
+/// \@file
+
 /// \brief
 /// Oled grayscale get function.
 /// \details

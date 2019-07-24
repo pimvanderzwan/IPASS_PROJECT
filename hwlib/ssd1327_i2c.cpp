@@ -1,5 +1,8 @@
 #include "ssd1327_i2c.hpp"
 
+/// \@file
+
+
 /// \brief
 /// I2C bus send command function.
 /// \details

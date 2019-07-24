@@ -1,6 +1,6 @@
 #include "grayscale_image_128x128.hpp"
 
-
+/// \@file
 
 /// \brief
 /// Oled get function.
